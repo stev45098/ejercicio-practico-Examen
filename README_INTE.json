@@ -1,0 +1,15 @@
+{
+  "project": "INTESUD - Portal de Turnos",
+  "features": [
+    "Reserva de turnos (validaciones básicas)",
+    "Listado y cancelación por email",
+    "Persistencia en data/turnos.json"
+  ],
+  "api": {
+    "GET /api/health": "health",
+    "GET /api/turnos": "{ turnos: [...] } (opcional: fecha, servicio)",
+    "POST /api/turnos/reservar": "{ ok, turno } o { ok:false, errors }",
+    "POST /api/turnos/cancelar": "{ ok:true }"
+  }
+}
+

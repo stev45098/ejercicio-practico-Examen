@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>INTESUD - Portal de Turnos</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="container">
+    <div class="top">
+      <div>
+        <h1>INTESUD</h1>
+        <p class="muted">Portal de reserva de turnos para atención estudiantil</p>
+      </div>
+      <div class="badges">
+        <span class="badge">API REST</span>
+        <span class="badge">Persistencia JSON</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Reservar turno</h2>
+      <form id="reserveForm" class="grid">
+        <label>
+          Nombre
+          <input name="nombre" required minlength="3" autocomplete="name" />
+        </label>
+        <label>
+          Email
+          <input name="email" required type="email" autocomplete="email" />
+        </label>
+        <label>
+          Servicio
+          <input name="servicio" required minlength="3" placeholder="Ej: Psicología" />
+        </label>
+        <label>
+          Fecha (YYYY-MM-DD)
+          <input name="fecha" required pattern="\\d{4}-\\d{2}-\\d{2}" placeholder="2026-07-17" />
+        </label>
+        <label>
+          Horario (HH:MM)
+          <input name="horario" required pattern="\\d{2}:\\d{2}" placeholder="09:30" />
+        </label>
+
+        <div class="row">
+          <button type="submit" class="btn">Reservar</button>
+        </div>
+      </form>
+
+      <div id="reserveMsg" class="message" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <div class="split">
+        <div>
+          <h2>Mis turnos</h2>
+          <p class="muted">Ingrese tu email para ver y cancelar reservas.</p>
+        </div>
+        <div class="search">
+          <label>
+            Email
+            <input id="emailQuery" type="email" placeholder="tu@email.com" />
+          </label>
+          <button id="loadBtn" class="btn secondary" type="button">Ver turnos</button>
+        </div>
+      </div>
+
+      <div id="turnosList" class="list"></div>
+      <div id="cancelMsg" class="message" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
+
